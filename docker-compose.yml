@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  node:
+    image: argvc/iroha-all-in-one
+    ports:
+      - "50051:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=${COMPOSE_PROJECT_NAME}_postgres_1
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - IROHA_REDIS_HOST=${COMPOSE_PROJECT_NAME}_redis_1
+      - IROHA_BLOCK_STORE_PATH=/app/src/block_store
+    depends_on:
+      - redis
+      - postgres
+    tty: true
+    working_dir: /opt/iroha
+  redis:
+    image: redis:3.2.8
+
+  postgres:
+    image: postgres:9.5
+    environment:
+      - POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+
