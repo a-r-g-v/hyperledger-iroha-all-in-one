@@ -3,6 +3,9 @@ version: '3'
 services:
   node:
     image: argvc/iroha-all-in-one
+    volumes:
+      - ./:/app/src/genesis_block
+      - ./keys:/app/src/keys
     ports:
       - 50051
     environment:
@@ -15,7 +18,7 @@ services:
       - redis
       - postgres
     tty: true
-    working_dir: /opt/iroha
+    working_dir: /app/src
   redis:
     image: redis:3.2.8
 
@@ -23,5 +26,5 @@ services:
     image: postgres:9.5
     environment:
       - POSTGRES_USER=iroha
-      - IROHA_POSTGRES_PASSWORD=helloworld
+      - POSTGRES_PASSWORD=helloworld
 
