@@ -1,13 +1,7 @@
-## Build
-
-```
-docker build -t argvc/iroha-all-in-one .
-```
-
-
 ## Run
 
 ```
-docker run -ti argvc/iroha-all-in-one
+docker-compose -p test1 up -d
 ```
 
+see also run.sh
