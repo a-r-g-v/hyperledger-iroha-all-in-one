@@ -6,12 +6,12 @@ services:
     ports:
       - "50051:50051"
     environment:
-      - IROHA_POSTGRES_HOST=${COMPOSE_PROJECT_NAME}_postgres_1
+      - IROHA_POSTGRES_HOST=postgres_1
       - IROHA_POSTGRES_USER=iroha
       - IROHA_POSTGRES_PASSWORD=helloworld
-      - IROHA_REDIS_HOST=${COMPOSE_PROJECT_NAME}_redis_1
+      - IROHA_REDIS_HOST=redis_1
       - IROHA_BLOCK_STORE_PATH=/app/src/block_store
-    depends_on:
+    links:
       - redis
       - postgres
     tty: true

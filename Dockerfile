@@ -98,7 +98,7 @@ RUN git clone https://github.com/hyperledger/iroha /app/src/iroha -b master ;\
     cd /app/src/iroha/build; cmake .. ; make ;
 
 RUN mkdir -p /app/src/block_store ;\
-    mkdir -p /app/src/genesious_block ;\
+    mkdir -p /app/src/genesious_block ;
 
 ADD genesious.block /app/src/genesious_block/genesious.block
 ADD . /app/src/

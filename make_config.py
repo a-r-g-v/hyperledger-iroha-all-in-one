@@ -3,7 +3,7 @@ import os
 
 def make_config():
     pg_opt = "host={postgres_host} port={postgres_port} user={postgres_user} password={postgres_password}".format(
-        postgres_host=os.environ.get('IROHA_POSTGRES_HOST', 'localhost'),
+        postgres_host=os.environ.get('IROHA_POSTGRES_HOST', '127.0.0.1'),
         postgres_port=os.environ.get('IROHA_POSTGRES_POST', 5432),
         postgres_user=os.environ.get('IROHA_POSTGRES_USER', 'postgres'),
         postgres_password=os.environ.get('IROHA_POSTGRES_PASSWORD', 'mysecretpassword'))
